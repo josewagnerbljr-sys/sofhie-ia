@@ -1,0 +1,16 @@
+{
+  "name": "sofhie-whatsapp-bridge",
+  "version": "1.0.0",
+  "description": "Ponte entre o WhatsApp (via Baileys) e o núcleo Python da Sofhie IA",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "express": "^4.19.2",
+    "qrcode-terminal": "^0.12.0",
+    "pino": "^9.5.0"
+  }
+}

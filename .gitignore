@@ -1,0 +1,43 @@
+# --- Segredos e configuração local ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+token*.json
+
+# --- Sessão do WhatsApp (Baileys / whatsapp-web.js): dá acesso total à conta ---
+whatsapp-service/auth_info*/
+whatsapp-service/baileys_auth*/
+auth_info*/
+.wwebjs_auth/
+.wwebjs_cache/
+
+# --- Dados de clientes/leads (LGPD) e logs ---
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+logs/
+
+# --- Dependências e ambientes ---
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# --- Sistema/IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+whatsapp-service/auth_sessao*/
+auth_sessao*/
+conhecimento_catalogo.md
+meu_conteudo.csv

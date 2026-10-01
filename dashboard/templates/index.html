@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Sofhie IA — Painel do Dia</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #0f1115; color: #eaeaea; margin: 0; padding: 40px; }
+  h1 { font-size: 22px; color: #d4af37; }
+  .subtitulo { color: #888; margin-bottom: 30px; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 30px; }
+  .card { background: #1a1d24; border: 1px solid #2a2d35; border-radius: 10px; padding: 20px; }
+  .card .numero { font-size: 32px; font-weight: bold; color: #d4af37; }
+  .card .rotulo { color: #999; font-size: 13px; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 10px; border-bottom: 1px solid #2a2d35; }
+  th { color: #999; font-weight: 500; font-size: 13px; }
+</style>
+</head>
+<body>
+  <h1>Sofhie IA — Painel do Dia</h1>
+  <div class="subtitulo">Relatório de {{ relatorio.data }} — atualizado ao vivo</div>
+
+  <div class="grade">
+    <div class="card">
+      <div class="numero">{{ relatorio.novos_contatos }}</div>
+      <div class="rotulo">Novos contatos hoje</div>
+    </div>
+    <div class="card">
+      <div class="numero">{{ relatorio.mensagens_enviadas }}</div>
+      <div class="rotulo">Mensagens enviadas pela Sofhie</div>
+    </div>
+    <div class="card">
+      <div class="numero">{{ relatorio.leads_encaminhados }}</div>
+      <div class="rotulo">Leads encaminhados para fechamento</div>
+    </div>
+  </div>
+
+  <h2>Publicações do dia por canal</h2>
+  <table>
+    <tr><th>Canal</th><th>Total publicado</th></tr>
+    {% for canal, total in relatorio.publicacoes_por_canal.items() %}
+    <tr><td>{{ canal }}</td><td>{{ total }}</td></tr>
+    {% else %}
+    <tr><td colspan="2">Nenhuma publicação registrada ainda hoje.</td></tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
